@@ -45,7 +45,7 @@ A comprehensive Model Context Protocol (MCP) server that provides AI assistants 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/apple-calendar-mcp.git
+git clone https://github.com/andrewbergsma/apple-calendar-mcp.git
 cd apple-calendar-mcp
 ```
 

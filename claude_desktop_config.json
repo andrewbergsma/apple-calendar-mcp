@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "apple-calendar": {
+      "command": "/Users/andrew/GitHub/apple-calendar-mcp/venv/bin/python3",
+      "args": ["/Users/andrew/GitHub/apple-calendar-mcp/apple_calendar_mcp.py"]
+    }
+  }
+}
