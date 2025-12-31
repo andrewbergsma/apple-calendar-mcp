@@ -987,8 +987,17 @@ def delete_event(
 
             set targetEvent to item 1 of matchingEvents
             set eventTitle to summary of targetEvent
-            set eventDate to date string of start date of targetEvent
-            set eventTime to time string of start date of targetEvent
+
+            -- Try to get date/time info before deletion
+            set eventDateStr to "{start_date}"
+            set eventTimeStr to ""
+            try
+                set eventStartDate to start date of targetEvent
+                set eventDateStr to date string of eventStartDate
+                if allday event of targetEvent is false then
+                    set eventTimeStr to time string of eventStartDate
+                end if
+            end try
 
             {delete_cmd}
 
@@ -996,8 +1005,10 @@ def delete_event(
 
             set outputText to "✅ EVENT DELETED" & return & return
             set outputText to outputText & "📌 " & eventTitle & return
-            set outputText to outputText & "📅 " & eventDate & return
-            set outputText to outputText & "🕐 " & eventTime & return
+            set outputText to outputText & "📅 " & eventDateStr & return
+            if eventTimeStr is not "" then
+                set outputText to outputText & "🕐 " & eventTimeStr & return
+            end if
             set outputText to outputText & "📁 Calendar: {calendar}" & return
 
             return outputText
